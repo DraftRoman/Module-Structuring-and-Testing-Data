@@ -15,5 +15,11 @@
 // It should return their Body Mass Index to 1 decimal place
 
 function calculateBMI(weight, height) {
+    const bmi = weight / (height * height);
+    return parseFloat(bmi.toFixed(1));
     // return the BMI of someone based off their weight and height
 }
+const yourBMI = calculateBMI(70, 1.73);
+console.log(`Your BMI is ${yourBMI}`); // Your BMI is 23.4
+const anotherBMI = calculateBMI(95, 1.88);
+console.log(`Another person's BMI is ${anotherBMI}`); // Another person's BMI is 26.8
