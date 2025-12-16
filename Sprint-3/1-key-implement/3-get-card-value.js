@@ -7,10 +7,11 @@
 // complete the rest of the tests and cases
 // write one test at a time, and make it pass, build your solution up methodically
 // just make one change at a time -- don't rush -- programmers are deep and careful thinkers
-function getCardValue(card) {
-    if (rank === "A") return 11;
-}
 
+function getCardValue(card) {
+    if (card.charAt(0) === "A") return 11;
+}
+module.exports = { getCardValue };
 // You need to write assertions for your function to check it works in different cases
 // we're going to use this helper function to make our assertions easier to read
 // if the actual output matches the target output, the test will pass
