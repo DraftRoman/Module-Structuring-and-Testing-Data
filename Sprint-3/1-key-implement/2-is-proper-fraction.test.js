@@ -23,6 +23,9 @@ describe("isProperFraction", () => {
     test("Stretch Case 3: identifies both negative numerator and denominator as proper fraction", () => {
         expect(isProperFraction(-2, -3)).toBe(true);
     });
+    test("Stretch Case 4: identifies zero denominator as improper fraction", () => {
+        expect(isProperFraction(3, 0)).toBe(false);
+    });
         
 });
 

@@ -11,6 +11,9 @@
 function getCardValue(card) {
   if (card.charAt(0) === "A") return 11;
   else if ((card.charAt(0) === "K") || (card.charAt(0) === "Q") || (card.charAt(0) === "J") || (card.slice(0, 2) === "10")) return 10;
+  else if (parseInt(card.charAt(0))) return parseInt(card.charAt(0));
+  else return "Invalid card rank.";
+
 }
 module.exports = { getCardValue };
 // You need to write assertions for your function to check it works in different cases

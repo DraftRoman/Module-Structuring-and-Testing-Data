@@ -13,5 +13,15 @@ describe("getCardValue", () => {
         expect(getCardValue("J♠")).toBe(10);
         expect(getCardValue("10♥")).toBe(10);
     });
-    
+    test("Stretch Case: handles Invalid Cards", () => {
+        expect(() => {
+            getCardValue("1♠");
+        }).toThrow("Invalid card rank.");
+    });
+    test("Stretch Case: handles Invalid Cards with letter", () => {
+        expect(() => {
+            getCardValue("X♠");
+        }).toThrow("Invalid card rank.");
+    });
+
 });

@@ -12,6 +12,7 @@ function isProperFraction(numerator, denominator) {
     numerator = -numerator;
     denominator = -denominator;
   }
+  if (denominator <= 0) return false;
   if (numerator < denominator) return true;
   else return false;
 }
@@ -69,4 +70,6 @@ assertEquals(equalFraction, false);
 assertEquals(stretchFraction1, true);
 assertEquals(stretchFraction2, false);
 assertEquals(stretchFraction3, true);
+const stretchFraction4 = isProperFraction(3, 0);
+assertEquals(stretchFraction4, false);
 
