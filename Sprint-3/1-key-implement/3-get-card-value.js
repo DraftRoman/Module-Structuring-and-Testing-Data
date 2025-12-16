@@ -9,7 +9,8 @@
 // just make one change at a time -- don't rush -- programmers are deep and careful thinkers
 
 function getCardValue(card) {
-    if (card.charAt(0) === "A") return 11;
+  if (card.charAt(0) === "A") return 11;
+  else if ((card.charAt(0) === "K") || (card.charAt(0) === "Q") || (card.charAt(0) === "J") || (card.slice(0, 2) === "10")) return 10;
 }
 module.exports = { getCardValue };
 // You need to write assertions for your function to check it works in different cases
@@ -40,7 +41,14 @@ const fiveofHearts = getCardValue("5♥");
 // Given a card with a rank of "10," "J," "Q," or "K",
 // When the function is called with such a card,
 // Then it should return the value 10, as these cards are worth 10 points each in blackjack.
-
+const kingofDiamonds = getCardValue("K♦");
+const queenofClubs = getCardValue("Q♣");
+const jackofSpades = getCardValue("J♠");
+const tenofHearts = getCardValue("10♥");
+assertEquals(kingofDiamonds, 10);
+assertEquals(queenofClubs, 10);
+assertEquals(jackofSpades, 10);
+assertEquals(tenofHearts, 10);
 // Handle Ace (A):
 // Given a card with a rank of "A",
 // When the function is called with an Ace,
