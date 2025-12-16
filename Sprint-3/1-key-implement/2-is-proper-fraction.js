@@ -54,3 +54,15 @@ const equalFraction = isProperFraction(3, 3);
 
 // Stretch:
 // What other scenarios could you test for?
+const stretchFraction1 = isProperFraction(0, 5);
+
+const stretchFraction2 = isProperFraction(3, -4);
+
+const stretchFraction3 = isProperFraction(-2, -3);
+// ====> complete with your assertions
+assertEquals(negativeFraction, true);
+assertEquals(equalFraction, false);
+assertEquals(stretchFraction1, true);
+assertEquals(stretchFraction2, false);
+assertEquals(stretchFraction3, true);
+
