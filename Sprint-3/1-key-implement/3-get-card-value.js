@@ -11,8 +11,8 @@
 function getCardValue(card) {
   if (card.charAt(0) === "A") return 11;
   else if ((card.charAt(0) === "K") || (card.charAt(0) === "Q") || (card.charAt(0) === "J") || (card.slice(0, 2) === "10")) return 10;
-  else if (parseInt(card.charAt(0))) return parseInt(card.charAt(0));
-  else return "Invalid card rank.";
+  else if (parseInt(card.charAt(0)) >= 2 && parseInt(card.charAt(0)) <= 9) return parseInt(card.charAt(0));
+  else throw new Error("Invalid card rank.");
 
 }
 module.exports = { getCardValue };
@@ -38,6 +38,7 @@ assertEquals(aceofSpades, 11);
 // When the function is called with such a card,
 // Then it should return the numeric value corresponding to the rank (e.g., "5" should return 5).
 const fiveofHearts = getCardValue("5♥");
+assertEquals(fiveofHearts, 5);
 // ====> write your test here, and then add a line to pass the test in the function above
 
 // Handle Face Cards (J, Q, K):
