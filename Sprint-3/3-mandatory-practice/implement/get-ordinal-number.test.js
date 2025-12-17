@@ -68,9 +68,11 @@ test("should return '114th' for 114", () => {
 test("should return '0th' for 0", () => {
     expect(getOrdinalNumber(0)).toEqual("0th");
 });
-// Case 10: Identify the ordinal number for non-integer numbers
-test("should return '1.5th' for 1.5", () => {
-    expect(getOrdinalNumber(1.5)).toEqual("1.5th");
+// Case 10: Invalid input: expected an integer.
+test("should throw error for not an integer", () => {
+    expect(() => {
+        getOrdinalNumber(1.5);
+        }).toThrow("Invalid input: expected an integer.");
 });
 // Case 11: Identify the ordinal number for very large numbers
 test("should return '1000000th' for 1000000", () => {
@@ -83,7 +85,7 @@ test("should return '1000001st' for 1000001", () => {
 test("should throw error for negative input", () => {
     expect(() => {
         getOrdinalNumber(-5);
-    }).toThrow("Invalid input: expected a ordinal number. Negative numbers are not allowed.");
+    }).toThrow("Invalid input: expected an ordinal number. Negative numbers are not allowed.");
 });
 // Case 13: Invalid input (non-numeric)
 test("should throw error for non-numeric input", () => {
