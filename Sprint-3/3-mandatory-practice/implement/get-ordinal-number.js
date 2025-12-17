@@ -1,5 +1,26 @@
 function getOrdinalNumber(num) {
- return "1st";
+    switch (true) {
+        case num === 1:
+            return "1st";
+        case num === 2:
+            return "2nd";
+        case num === 3:
+            return "3rd";
+        case num % 10 == 1 && num % 100 != 11:
+            return num + "st";
+        case num % 10 == 2 && num % 100 != 12:
+            return num + "nd";
+        case num % 10 == 3 && num % 100 != 13:
+            return num + "rd";
+        
+
+        case (typeof num === 'number' && num >= 0):
+            return num + "th";
+        case typeof num !== 'number' || isNaN(num):
+            throw new Error("Invalid input: expected a number.");
+        case num < 0:
+            throw new Error("Invalid input: expected a ordinal number. Negative numbers are not allowed.");
+    }
 }
 
 module.exports = getOrdinalNumber;
