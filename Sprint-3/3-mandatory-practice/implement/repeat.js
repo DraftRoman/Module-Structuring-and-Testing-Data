@@ -12,3 +12,4 @@ function repeat(str, count) {
     return result;
 }
 
+module.exports = repeat;
