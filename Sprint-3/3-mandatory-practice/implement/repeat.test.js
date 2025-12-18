@@ -50,3 +50,10 @@ test("should throw an error for negative count", () => {
         repeat(str, count);
     }).toThrow("Invalid input: as negative counts are not valid.");
 });
+test("should throw an error for not a number", () => {
+    const str = "case 5";
+    const count = "a";
+    expect(() => {
+        repeat(str, count);
+    }).toThrow("Invalid input: expected a number.");
+});
