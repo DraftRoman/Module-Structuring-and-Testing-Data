@@ -1,13 +1,31 @@
 function passwordValidator(password) {
     let hasLowercase = false;
     let hasUppercase = false;
+    let hasNumber = false;
+    if (password.length < 5) {
+        return "The password has to have at least five characters";
+    }
     for (let i = 0; i < password.length; i++) {
         const char = password[i];
         if (char >= "a" && char <= "z") hasLowercase = true;
         if (char >= "A" && char <= "Z") hasUppercase = true;
+        if (char >= "0" && char <= "9") hasNumber = true;
     }
-    return hasLowercase && hasUppercase && password.length >= 5;
+    if (!hasLowercase) {
+        return "The password has to have at least one lowercase letter";
+    }
+    if (!hasUppercase) {
+        return "The password has to have at least one uppercase letter";
+    }
+    if (!hasNumber) {
+        return "The password has to have at least one number";
+    }
+    if (password.includes(" ")) {
+        throw new Error("The password has spaces"); 
+    }
+    return "The password is strong";
 }
+
 
 
 module.exports = passwordValidator;
