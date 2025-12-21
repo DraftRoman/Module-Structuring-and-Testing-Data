@@ -37,11 +37,6 @@ function passwordValidator(password,priviesPasswords=[]) {
     return "The password is strong";
 }
 
-const priviesPasswords = ["Abc12!", "aBc12@", "asdfG12$"];
-
-console.log(passwordValidator("aBc12!", priviesPasswords));
-
-console.log(priviesPasswords);
 
 
 module.exports = passwordValidator;

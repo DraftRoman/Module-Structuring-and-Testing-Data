@@ -47,6 +47,18 @@ test("The password has to have at least one special character", () => {
   const result = isValidPassword(password);
   expect(result).toEqual("The password has to have at least one special character");
 });
+test("The password is the same as a previous one", () => {
+  const priviesPasswords = ["Abc12!", "aBc12@", "asdfG12$"];
+  const password = "aBc12@";
+  const result = isValidPassword(password,priviesPasswords);
+  expect(result).toEqual("The password is the same as a previous one");
+});
+test("The password is strong", () => {
+  const priviesPasswords = ["Abc12!", "aBc12@", "asdfG12$"];
+  const password = "asdfG12@";
+  const result = isValidPassword(password,priviesPasswords);
+  expect(result).toEqual("The password is strong");
+});
 
 test("throws error if password has spaces", () => {
   expect(() => {
