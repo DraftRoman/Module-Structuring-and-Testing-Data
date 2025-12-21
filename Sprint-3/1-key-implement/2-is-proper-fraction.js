@@ -8,8 +8,16 @@
 // write one test at a time, and make it pass, build your solution up methodically
 
 function isProperFraction(numerator, denominator) {
-    if (numerator < denominator) return true;
+  if (numerator < 0 && denominator < 0) {
+    numerator = -numerator;
+    denominator = -denominator;
+  }
+  if (denominator <= 0) return false;
+  if (numerator < denominator) return true;
+  else return false;
 }
+module.exports = { isProperFraction };
+
 
 // here's our helper again
 function assertEquals(actualOutput, targetOutput) {
@@ -51,3 +59,17 @@ const equalFraction = isProperFraction(3, 3);
 
 // Stretch:
 // What other scenarios could you test for?
+const stretchFraction1 = isProperFraction(0, 5);
+
+const stretchFraction2 = isProperFraction(3, -4);
+
+const stretchFraction3 = isProperFraction(-2, -3);
+// ====> complete with your assertions
+assertEquals(negativeFraction, true);
+assertEquals(equalFraction, false);
+assertEquals(stretchFraction1, true);
+assertEquals(stretchFraction2, false);
+assertEquals(stretchFraction3, true);
+const stretchFraction4 = isProperFraction(3, 0);
+assertEquals(stretchFraction4, false);
+

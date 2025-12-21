@@ -17,10 +17,54 @@ You must breakdown this problem in order to solve it. Find one test case first a
 const isValidPassword = require("./password-validator");
 test("password has at least 5 characters", () => {
     // Arrange
-    const password = "12345";
+    const password = "As3#";
     // Act
     const result = isValidPassword(password);
     // Assert
-    expect(result).toEqual(true);
+    expect(result).toEqual("The password has to have at least five characters");
 }
 );
+test("Password has to have at least one lowercase letter", () => {
+    const password = "12345";
+    const result = isValidPassword(password);
+    expect(result).toEqual("The password has to have at least one lowercase letter");
+}
+);
+test("Password has to have at least one Uppercase letter", () => {
+    const password = "12a@q";
+    const result = isValidPassword(password);
+    expect(result).toEqual("The password has to have at least one uppercase letter");
+}
+);
+test ("Password has to have at least one number", () => {
+    const password = "AZa@q";
+    const result = isValidPassword(password);
+    expect(result).toEqual("The password has to have at least one number");
+}
+);
+test("The password has to have at least one special character", () => {
+  const password = "12aAq";
+  const result = isValidPassword(password);
+  expect(result).toEqual("The password has to have at least one special character");
+});
+test("The password is the same as a previous one", () => {
+  const priviesPasswords = ["Abc12!", "aBc12@", "asdfG12$"];
+  const password = "aBc12@";
+  const result = isValidPassword(password,priviesPasswords);
+  expect(result).toEqual("The password is the same as a previous one");
+});
+test("The password is strong", () => {
+  const priviesPasswords = ["Abc12!", "aBc12@", "asdfG12$"];
+  const password = "asdfG12@";
+  const result = isValidPassword(password,priviesPasswords);
+  expect(result).toEqual("The password is strong");
+});
+
+test("throws error if password has spaces", () => {
+  expect(() => {
+    isValidPassword("aB@1  s");
+  }).toThrow("The password has spaces");
+});
+
+
+

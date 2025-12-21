@@ -6,6 +6,7 @@ function find(str, char) {
       return index;
     }
     index++;
+    console.log(index);
   }
   return -1;
 }
@@ -20,6 +21,15 @@ console.log(find("code your future", "z"));
 // Pay particular attention to the following:
 
 // a) How the index variable updates during the call to find
+// starts from 0, than while loop while index less than 15. This loop for going through the string. 
+
 // b) What is the if statement used to check
+// If statement to find on what index we have the same character as a char 
+// When it's true it will go to return index, which will be the exit form the loop. 
+
 // c) Why is index++ being used?
+// it been used as an index of the current position in the string. 
+// ++ is adding 1 to the index to move to the next position in the string  
 // d) What is the condition index < str.length used for?
+// length how long this string is and the while loop will be doing everything inside the bode of the loop until index get through 
+// the string  

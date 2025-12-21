@@ -17,6 +17,41 @@ test("should count multiple occurrences of a character", () => {
   expect(count).toEqual(5);
 });
 
+test("should return 0 when character does not exist in string", () => {
+  const str = "Hello World";
+  const char = "x";
+  const count = countChar(str, char);
+  expect(count).toEqual(0);
+});
+
+test("should be case-sensitive when counting characters", () => {
+  const str = "AbcabcABC";
+  const char = "a";
+  const count = countChar(str, char);
+  expect(count).toEqual(1);
+});
+
+test("should count single occurrence of a character", () => {
+  const str = "Hello";
+  const char = "e";
+  const count = countChar(str, char);
+  expect(count).toEqual(1);
+});
+
+test("should return 0 for empty string input", () => {
+  const str = "";
+  const char = "a";
+  const count = countChar(str, char);
+  expect(count).toEqual(0);
+});
+
+test("should return Invalid arguments: expected a string and a single character. for invalid inputs", () => {
+  const str = 12345;
+  const char = "a";
+  expect(() => {
+    countChar(str, char);
+  }).toThrow("Invalid arguments: expected a string and a single character.");
+});
 // Scenario: No Occurrences
 // Given the input string str,
 // And a character char that does not exist within the case-sensitive str,
