@@ -1,4 +1,4 @@
-function passwordValidator(password) {
+function passwordValidator(password,priviesPasswords=[]) {
     let hasLowercase = false;
     let hasUppercase = false;
     let hasNumber = false;
@@ -20,12 +20,28 @@ function passwordValidator(password) {
     if (!hasNumber) {
         return "The password has to have at least one number";
     }
+    
+    if (!password.match(/^(?=.*[!@#$%.*&]).+$/)) {
+        return "The password has to have at least one special character";
+    }
+    for (let i = 0; i < priviesPasswords.length; i++) {
+        if (password === priviesPasswords[i]) {
+            return "The password is the same as a previous one";
+        }
+    }
+    
     if (password.includes(" ")) {
         throw new Error("The password has spaces"); 
     }
+    priviesPasswords.push(password);
     return "The password is strong";
 }
 
+const priviesPasswords = ["Abc12!", "aBc12@", "asdfG12$"];
+
+console.log(passwordValidator("aBc12!", priviesPasswords));
+
+console.log(priviesPasswords);
 
 
 module.exports = passwordValidator;
